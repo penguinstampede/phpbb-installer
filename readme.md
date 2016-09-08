@@ -1,10 +1,14 @@
 # Composer phpBB 3.1 installer
 
-This is a composer script which installs phpBB 3.1 to a given web root. The phpbb files are copied from its vendor dir. Existing files are overwritten. So make sure you don't hack the phpBB source files but use [extensions](https://wiki.phpbb.com/Category:Extensions) and [child themes](https://wiki.phpbb.com/Template_Inheritance_Changes_in_3.1).
+This is a composer script which installs phpBB 3.1 to a given web root. The phpbb files are copied from its vendor dir, but NOT the install directory in case you are deploying with Chef (don't take down the site if all you did is add a theme!).
+
+Existing files are overwritten. So make sure you don't hack the phpBB source files but use [extensions](https://wiki.phpbb.com/Category:Extensions) and [child themes](https://wiki.phpbb.com/Template_Inheritance_Changes_in_3.1).
 
 Although this is tested on Windows 8.1 and [vagrant-phpbb](https://github.com/xtreamwayz/vagrant-phpbb), **use at your own risk!!!** Make backups and preferable use a [test server](https://github.com/xtreamwayz/vagrant-phpbb) before messing up your production server.
 
 To let phpBB know where the vendor lib is located, 2 settings are added to ``.htaccess``. So don't hack into this file.
+
+*If you use Nginx you will have to set ENV variables to define where the vendor lib is located... maybe eventually I'll add an nginx.conf or something...*
 
 ## Getting Started
 

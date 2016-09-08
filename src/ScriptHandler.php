@@ -26,7 +26,6 @@ class ScriptHandler
         '/files' => '/files',
         '/images' => '/images',
         '/includes' => '/includes',
-        '/install' => '/install',
         '/language' => '/language',
         '/phpbb' => '/phpbb', // v3.1.x
         '/store' => '/store',
@@ -97,7 +96,7 @@ class ScriptHandler
         }
 
         if (!is_dir($dest)) {
-            if (!mkdir($dest, 0644, true)) {
+            if (!mkdir($dest, 0755, true)) {
                 $io->write(sprintf('<error>Failed to create destination: </error>', $dest));
                 return;
             }
@@ -175,7 +174,7 @@ EOF;
 
         // Make destination directory
         if (is_dir($source) && !is_dir($dest)) {
-            mkdir($dest, $permissions);
+            mkdir($dest, 0755);
         }
 
         // Loop through the folder
